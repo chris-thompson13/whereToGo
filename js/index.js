@@ -4,10 +4,13 @@ var uluru = {
   lat: -25.363,
   lng: 131.044
 };
+var lost;
 var guessedLetters =[];
 var resultLength;
 var typeArray = ["restaurant","bar","cafe","park", "food"]
 var map;
+var dollars = 50
+var correct
 var start2 = document.getElementById('start1')
 var infowindow;
 var gameLocation;
@@ -168,6 +171,13 @@ function randType() {
   // Only change code below this line.
 
   return Math.floor((Math.random() * typeArray.length) + 1);
+}
+
+function randDollar() {
+
+  // Only change code below this line.
+
+  return Math.floor((Math.random() * 10) + 1);
 }
 
 
@@ -441,18 +451,16 @@ function addMarker(place) {
 
 
 function addLetters() {
-
+  correct =false
   go.style.backgroundColor = colorsArray[randColor()]
   var currentGuess = letterGuess.value.toUpperCase()
   console.log(currentGuess)
 if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(currentGuess) == false){
   guessedLetters.push(currentGuess)
   for(var i = 0; i < lettersObject.length; i++){
-    console.log('correct')
 
   if (currentGuess == lettersObject[i].letter){
-    console.log('correct')
-
+    correct = true
   var latlng = new google.maps.LatLng(answerMarker.position.lat(), answerMarker.position.lng() - lettersObject[i].distance);
 
 
@@ -486,6 +494,15 @@ if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(curre
   map.setZoom(15)
 
 }
+} if (correct == true){
+  displayMessage("Nice you might find it!")
+
+} else {
+  lost = randDollar()
+  dollars = dollars - lost
+  dollar.textContent = "$" + dollars + "left"
+  displayMessage("Wrong letter, someone stole " + "$"+ lost +"  from your wallet!")
+
 }
 document.getElementById('block').innerHTML += "<button class = 'letters'><font color = '" + colorsArray[randColor()] + "'>-" + letterGuess.value.toUpperCase() + "-</button>"
 console.log("p")

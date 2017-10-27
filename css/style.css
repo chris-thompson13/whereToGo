@@ -116,7 +116,7 @@ p{
 }
 
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -125,18 +125,36 @@ p{
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.7);
     text-align: center;
+}
+
+#start3{
+  display: block;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+#dollar{
+  width: 200px;
+  color: rgba(56, 229, 140, 1);
+  background-color: white;
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: rgba(56, 229, 140, 1);
+
+
 }
 
 .modal-content {
     background-color: #fefefe;
     text-align: center;
-    margin: 15% auto; /* 15% from the top and centered */
+    vertical-align: middle;
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
+    border-radius: 30px;
+    width: 80%;
+  }
 
 .close {
     color: #aaa;
