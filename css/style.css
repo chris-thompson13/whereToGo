@@ -83,9 +83,9 @@ p{
   font-weight: bold;
   color: white;
 
-  width:50px;
+  width:100px;
   display: inline-block;
-  border-radius: 50%;
+  border-radius: 10px;
   text-align: center;
   background-color: rgba(56, 229, 140, 1);
   border-color:rgba(255, 255,255, 0.5);
@@ -102,9 +102,9 @@ p{
   font-weight: bold;
   color: white;
 
-  width:50px;
+  width:100px;
   display: inline-block;
-  border-radius: 50%;
+  border-radius: 10px;
   text-align: center;
   background-color: rgba(56, 229, 140, 1);
   border-color:rgba(255, 255,255, 0.5);
