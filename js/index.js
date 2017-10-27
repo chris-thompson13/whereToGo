@@ -29,6 +29,7 @@ var spacing = .00;
 var addSpacing = .001;
 var currentLetter;
 var spacesAdded = false;
+var win = 0;
 
 var started = false;
 
@@ -370,12 +371,15 @@ function callback(results, status) {
     letters = word.split('');
     wordLocation = place.geometry.location;
     pinned = true;
-    pano.innerHTML += "<div id ='pano'><p>Type of venue - " + place.types[0] + "</p></div>"
+    pano.innerHTML += "<div id ='pano'><p>Hint - you left it in a " + place.types[0] + "</p></div>"
     map.setCenter(place.geometry.location);
     for (var i = 0; i < letters.length; i++) {
+      if (letters[i] !== " "){
+
       lettersObject.push({
         letter: letters[i].toUpperCase(),
         distance: (letters.length - i) * addSpacing});
+      }
         if (letters[i] !== " "){
         var latlng = new google.maps.LatLng(answerMarker.position.lat(), answerMarker.position.lng() - ((letters.length - i) * addSpacing));
 
@@ -455,23 +459,16 @@ function addMarker(place) {
   });
 
   google.maps.event.addListener(answerMarker, 'click', function() {
-    service.getDetails(place, function(result, status) {
-      if (status !== google.maps.places.PlacesServiceStatus.OK) {
-        console.error(status);
-        return;
-      } else {
-        infoWindow.setContent(result.name);
-        infoWindow.open(map, answerMarker);
-      }
-    });
-  });
-
+    infoWindow.setContent("$" + dollars);
+    infoWindow.open(map, answerMarker);
+})
   preGame.style.display = "inline-block";
 
 }
 }
 
 function addLetters() {
+
   correct =false
   go.style.backgroundColor = colorsArray[randColor()]
   var currentGuess = letterGuess.value.toUpperCase()
@@ -484,7 +481,7 @@ if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(curre
     correct = true
   var latlng = new google.maps.LatLng(answerMarker.position.lat(), answerMarker.position.lng() - lettersObject[i].distance);
 
-
+  win++
 
 
 
@@ -521,7 +518,6 @@ if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(curre
 } else {
   lost = randDollar()
   dollars = dollars - lost
-  dollar.textContent = "$" + dollars + " left"
   if (dollars > 0){
   displayMessage("Wrong letter, someone stole " + "$"+ lost +"  from your wallet!")
 }else{
@@ -538,6 +534,15 @@ letterGuess.value = ""
   displayMessage("Please choose a letter you haven't picked before or give your final guess")
 
 }
+
+infoWindow.setContent("<h1>$" + dollars + " left in your wallet </h1>");
+infoWindow.open(map, answerMarker);
+
+
+  if (win == lettersObject.length -1){
+    displayMessage("You found it! Be more responsible next time...")
+    loss = true
+  }
 }
 
 displayModal()

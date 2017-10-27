@@ -2,11 +2,16 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        background-color: white;
         font-family: Arial, Helvetica, sans-serif;
 
       }
       #map, #pano {
 
+}
+h1{
+  font-size: 20px;
+  color:grey;
 }
 .loading{
   margin: 0 auto;
@@ -143,6 +148,7 @@ p{
   border-color: rgba(56, 229, 140, 1);
 
 
+
 }
 #newMessag{
   width:100%;
@@ -157,6 +163,10 @@ p{
     border: 1px solid #888;
     border-radius: 30px;
     width: 80%;
+    border-color: rgba(56, 229, 140, 5);
+    background-color: rgba(255,255,255,.9);
+
+
   }
 
 .close {
