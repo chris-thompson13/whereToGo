@@ -49,7 +49,7 @@ p{
 }
 .guess{
 
-  width:400px;
+  width:500px;
   height: 30px;
   border-radius: 5px;
   border-style:outset;
@@ -143,6 +143,9 @@ p{
   border-color: rgba(56, 229, 140, 1);
 
 
+}
+#newMessag{
+  width:100%;
 }
 
 .modal-content {

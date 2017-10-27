@@ -4,6 +4,7 @@ var uluru = {
   lat: -25.363,
   lng: 131.044
 };
+var loss = false
 var lost;
 var guessedLetters =[];
 var resultLength;
@@ -196,13 +197,24 @@ function closeMod(){
   startMod.style.display = "none"
 }
 function closeMod2(){
+  if (loss == false){
   console.log("hide")
   message.style.display = "none"
+} else{
+  location.reload()
 }
-
+}
+function displayContinue(){
+  start4.style.display = "block"
+}
 function displayMessage(messageString){
   message.style.display = "block"
   newMessage.innerHTML = messageString
+  if (loss == true){
+    start4.style.display = "none"
+    setTimeout(displayContinue(), 4000)
+
+  }
 
 }
 
@@ -276,11 +288,15 @@ function initMap() {
 
 
     }, function() {
+      loss =true
+
+      displayMessage("please share your reload your page and allow location sharing")
       handleLocationError(true, infoWindow, map.getCenter());
     });
   } else {
-    // Browser doesn't support Geolocation
+    displayMessage("please share your location and reload page")
     handleLocationError(false, infoWindow, map.getCenter());
+
   }
 
 
@@ -506,6 +522,7 @@ if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(curre
   if (dollars > 0){
   displayMessage("Wrong letter, someone stole " + "$"+ lost +"  from your wallet!")
 }else{
+  loss = true
   displayMessage("You lose. You're broke. Restart game to steal BJ's wallet and try again")
 
 }
