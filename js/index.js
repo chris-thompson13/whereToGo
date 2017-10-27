@@ -4,6 +4,7 @@ var uluru = {
   lat: -25.363,
   lng: 131.044
 };
+var guessedLetters =[];
 var resultLength;
 var typeArray = ["restaurant","bar","cafe","park", "food"]
 var map;
@@ -170,10 +171,42 @@ function randType() {
 }
 
 
+head.style.backgroundColor = colorsArray[randColor()]
+start3.style.backgroundColor = colorsArray[randColor()]
 
 start1.style.backgroundColor = colorsArray[randColor()]
 pano.style.display = "none";
 preGame.style.display = "none";
+
+function displayModal(){
+  startMod.style.display = "block"
+}
+function closeMod(){
+  console.log("hide")
+  startMod.style.display = "none"
+}
+function closeMod2(){
+  console.log("hide")
+  message.style.display = "none"
+}
+
+function displayMessage(messageString){
+  message.style.display = "block"
+  newMessage.innerHTML = messageString
+
+}
+
+letterGuess.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {
+        validate(e);
+        console.log("enter")
+    }
+});
+
+function validate(e) {
+      addLetters()
+    //validation of the input...
+}
 
 function initMap() {
   randIndex()
@@ -406,11 +439,14 @@ function addMarker(place) {
 
 }
 
+
 function addLetters() {
+
   go.style.backgroundColor = colorsArray[randColor()]
   var currentGuess = letterGuess.value.toUpperCase()
   console.log(currentGuess)
-
+if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(currentGuess) == false){
+  guessedLetters.push(currentGuess)
   for(var i = 0; i < lettersObject.length; i++){
     console.log('correct')
 
@@ -454,5 +490,11 @@ function addLetters() {
 document.getElementById('block').innerHTML += "<button class = 'letters'><font color = '" + colorsArray[randColor()] + "'>-" + letterGuess.value.toUpperCase() + "-</button>"
 console.log("p")
 letterGuess.value = ""
+} else {
+
+  displayMessage("Please choose a letter you haven't picked before or give your final guess")
 
 }
+}
+
+displayModal()

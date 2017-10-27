@@ -14,6 +14,10 @@
 </head>
 
 <body onload="initMap()">
+  <nav id ="head"class= "header">
+
+
+  </nav>
 
 <div id="map">
 
@@ -25,7 +29,8 @@
    <button class = "reset" id = "start1" onclick = "reset()">Start</button>
 <div id = "preGame">
   <input class = "guess" placeholder="Guess a letter or give final answer" id ="letterGuess">
-   <button id ="go" class = "test" onclick ="addLetters()">Go</button>
+  <button  id ="go" class = "test" onclick ="addLetters()">Go</button>
+
  </div>
  </div>
 
@@ -33,6 +38,26 @@
   <div id="block"></div>
 
 
+
+</div>
+
+<div id="startMod" class="modal">
+
+  <div class="modal-content">
+    <p>You've lost your wallet, play this game to find it!</p>
+    <button class = "reset" id = "start3" onclick = "closeMod()">Start</button>
+
+  </div>
+
+</div>
+
+<div id="message" class="modal">
+
+  <div class="modal-content">
+    <p id ="newMessage">You've lost your wallet, play this game to find it!</p>
+    <button class = "reset" id = "start4" onclick = "closeMod2()">Continue</button>
+
+  </div>
 
 </div>
 
