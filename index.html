@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>A Pen by  chris thompson</title>
+
+
+
+      <link rel="stylesheet" href="css/style.css">
+      <script async defer     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoNacUFBOigxvwixOklCUYsU0A04w-VXw&callback=initMap&libraries=places">
+          </script>
+
+
+</head>
+
+<body onload="initMap()">
+
+<div id="map">
+
+
+ </div>
+ <center><img class = "loading" src="./imgs/load.png" id = "load" alt=""></center>
+ <div id="pano">
+
+   <button class = "reset" id = "start1" onclick = "reset()">Start</button>
+<div id = "preGame">
+  <input class = "guess" placeholder="Guess a letter or give final answer" id ="letterGuess">
+   <button id ="go" class = "test" onclick ="addLetters()">Go</button>
+ </div>
+ </div>
+
+<div id ="letter">
+  <div id="block"></div>
+
+
+
+</div>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>
