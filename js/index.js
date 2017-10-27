@@ -288,15 +288,18 @@ function initMap() {
 
 
     }, function() {
-      loss =true
+      pos = map.center
 
-      displayMessage("please share your reload your page and allow location sharing")
-      handleLocationError(true, infoWindow, map.getCenter());
+
+      pano.style.display = "block"
+      load.style.display = "none";
     });
   } else {
-    displayMessage("please share your location and reload page")
-    handleLocationError(false, infoWindow, map.getCenter());
+    pos = map.center
 
+
+    pano.style.display = "block"
+    load.style.display = "none";
   }
 
 
