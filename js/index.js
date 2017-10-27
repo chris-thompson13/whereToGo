@@ -9,7 +9,7 @@ var guessedLetters =[];
 var resultLength;
 var typeArray = ["restaurant","bar","cafe","park", "food"]
 var map;
-var dollars = 50
+var dollars = 100
 var correct
 var start2 = document.getElementById('start1')
 var infowindow;
@@ -177,7 +177,7 @@ function randDollar() {
 
   // Only change code below this line.
 
-  return Math.floor((Math.random() * 10) + 1);
+  return Math.floor((Math.random() * 20) + 1);
 }
 
 
@@ -500,7 +500,7 @@ if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(curre
 } else {
   lost = randDollar()
   dollars = dollars - lost
-  dollar.textContent = "$" + dollars + "left"
+  dollar.textContent = "$" + dollars + " left"
   displayMessage("Wrong letter, someone stole " + "$"+ lost +"  from your wallet!")
 
 }
