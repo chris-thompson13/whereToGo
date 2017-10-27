@@ -9,7 +9,7 @@ var guessedLetters =[];
 var resultLength;
 var typeArray = ["restaurant","bar","cafe","park", "food"]
 var map;
-var dollars = 100
+var dollars = 50
 var correct
 var start2 = document.getElementById('start1')
 var infowindow;
@@ -408,7 +408,9 @@ function callback(results, status) {
 
 
 function addMarker(place) {
-  console.log(place.name)
+  if (place == undefined){
+    newGame()
+  } else {
   map.setCenter(place.geometry.location)
   map.setZoom(15)
 
@@ -448,7 +450,7 @@ function addMarker(place) {
   preGame.style.display = "inline-block";
 
 }
-
+}
 
 function addLetters() {
   correct =false
@@ -501,8 +503,12 @@ if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(curre
   lost = randDollar()
   dollars = dollars - lost
   dollar.textContent = "$" + dollars + " left"
+  if (dollars > 0){
   displayMessage("Wrong letter, someone stole " + "$"+ lost +"  from your wallet!")
+}else{
+  displayMessage("You lose. You're broke. Restart game to steal BJ's wallet and try again")
 
+}
 }
 document.getElementById('block').innerHTML += "<button class = 'letters'><font color = '" + colorsArray[randColor()] + "'>-" + letterGuess.value.toUpperCase() + "-</button>"
 console.log("p")
