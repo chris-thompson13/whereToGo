@@ -1,3 +1,3 @@
-A Pen created at CodePen.io. You can find this one at https://codepen.io/cthompson13/pen/boPRJo.
+Word game to find wallet. Side goal for this project was to familiarize myself with the Google Maps API.
 
  

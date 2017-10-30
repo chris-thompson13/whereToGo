@@ -35,7 +35,6 @@ var started = false;
 
 var colorsArray = ["#0D47A1","#F50057","#D500F9","#455A64","#F4511E","#00695C","#FF4081"];
 
-
 var mapStyle = [
     {
         "featureType": "poi",
