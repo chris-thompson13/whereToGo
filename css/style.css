@@ -218,13 +218,13 @@ p{
   text-align: center;
   height:50px;
   vertical-align: middle;
-  color: #039BE5;
+  color: white;
   font-size: 15px;
   font-weight:bolder;
   display: table-cell;
   position:center;
   margin: 0 auto;
-  border-color: #039BE5;
+  border-color: white;
   background-color:white;
   margin-bottom: 0;
   display: inline-block;

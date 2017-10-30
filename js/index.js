@@ -526,7 +526,7 @@ if (currentGuess !== "" && currentGuess !== " " && guessedLetters.includes(curre
 
 }
 }
-document.getElementById('block').innerHTML += "<button class = 'letters'><font color = '" + colorsArray[randColor()] + "'>-" + letterGuess.value.toUpperCase() + "-</button>"
+document.getElementById('block').innerHTML += "<button style='background-color:" + colorsArray[randColor()] + "'class = 'letters'>-" + letterGuess.value.toUpperCase() + "-</button>"
 console.log("p")
 letterGuess.value = ""
 } else {
